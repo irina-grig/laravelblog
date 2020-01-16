@@ -29,7 +29,12 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        //
+        //метод отвечает за открытие формы и создвние категорий
+        return view ('admin.categories.create',[
+            'category'   => [],
+            'categories' => Category::with('children')->where('parent_id','0')->get(),
+            'delimiter'  => ''
+        ]);
     }
 
     /**
